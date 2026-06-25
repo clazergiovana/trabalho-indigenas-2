@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memória e Resistência: O Panorama dos Povos Indígenas no Paraná</title>
+    <style>
+        /* Configurações Globais e Variáveis de Cores */
+        :root {
+            --cor-primaria: #1b4332;
+            --cor-secundaria: #2d6a4f;
+            --cor-destaque: #bc6c25;
+            --cor-destaque-claro: #dda15e;
+            --cor-fundo: #fdfbf7;
+            --cor-texto: #2b2d42;
+            --cor-card-fundo: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--cor-fundo);
+            color: var(--cor-texto);
+            line-height: 1.8;
+            font-size: 16px;
+        }
+
+        /* Barra de Navegação */
+        nav {
+            background-color: var(--cor-primaria);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        .nav-logo {
+            color: #fff;
+            font-weight: bold;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        .nav-menu a {
+            color: #e0e0e0;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        .nav-menu a:hover {
+            color: var(--cor-destaque-claro);
+        }
+
+        /* Banner Hero - Foto de uma floresta densa com raios de sol */
+        header {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&q=80&w=1600') no-repeat center/cover;
+            color: #fff;
+            text-align: center;
+            padding: 160px 20px;
+        }
+
+        header h1 {
+            font-size: 3.8rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+            letter-spacing: -1px;
+        }
+
+        header p {
+            font-size: 1.4rem;
+            max-width: 800px;
+            margin: 0 auto;
+            font-weight: 300;
+            color: #f0f0f0;
+        }
+
+        /* Container de Conteúdo */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        /* Seções de Texto */
+        section {
+            margin-bottom: 70px;
+        }
+
+        .section-title {
+            color: var(--cor-primaria);
+            font-size: 2.2rem;
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: var(--cor-destaque);
+            margin-top: 10px;
+            border-radius: 2px;
+        }
+
+        p {
+            margin-bottom: 20px;
+            text-align: justify;
+            color: #4a4a4a;
+        }
+
+        .Destaque-texto {
+            font-size: 1.15rem;
+            border-left: 4px solid var(--cor-destaque);
+            padding-left: 20px;
+            margin: 30px 0;
+            font-style: italic;
+            color: #333;
+        }
+
+        /* Grid de Imagens e Etnias */
+        .grid-etnias {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .card-etnia {
+            background: var(--cor-card-fundo);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card-etnia:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+
+        .card-etnia img {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+        }
+
+        .card-body {
+            padding: 30px;
+        }
+
+        .card-body h3 {
+            color: var(--cor-destaque);
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        /* Tabelas de Dados */
+        .tabela-wrapper {
+            overflow-x: auto;
+            margin: 40px 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-radius: 8px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #fff;
+            text-align: left;
+        }
+
+        th, td {
+            padding: 15px 20px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        th {
+            background-color: var(--cor-primaria);
+            color: #fff;
+            font-weight: 600;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f8f3;
+        }
+
+        /* Seção União de Links (Cards que abrem novas abas) */
+        .grid-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .link-box {
+            background: var(--cor-secundaria);
+            color: #fff;
+            padding: 35px 25px;
+            border-radius: 10px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 220px;
+            box-shadow: 0 4px 15px rgba(45, 106, 79, 0.15);
+        }
+
+        .link-box:hover {
+            background: var(--cor-primaria);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(27, 67, 50, 0.3);
+        }
+
+        .link-box h4 {
+            font-size: 1.3rem;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        .link-box p {
+            font-size: 0.9rem;
+            color: #e2f0d9;
+            margin-bottom: 0;
+            text-align: left;
+        }
+
+        .link-btn {
+            align-self: flex-start;
+            background: var(--cor-destaque);
+            color: #fff;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-top: 15px;
+        }
+
+        /* Rodapé */
+        footer {
+            background-color: var(--cor-primaria);
+            color: #e0e0e0;
+            padding: 50px 20px;
+            text-align: center;
+            font-size: 0.95rem;
+            border-top: 5px solid var(--cor-destaque);
+        }
+
+        footer p {
+            text-align: center;
+            color: #b3c6be;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            header h1 { font-size: 2.5rem; }
+            header p { font-size: 1.1rem; }
+            .nav-menu { display: none; }
+            .section-title { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Menu Superior -->
+    <nav>
+        <div class="nav-container">
+            <div class="nav-logo">Portal Origens PR</div>
+            <ul class="nav-menu">
+                <li><a href="#historia">História</a></li>
+                <li><a href="#etnias">Os Povos</a></li>
+                <li><a href="#dados">Demografia</a></li>
+                <li><a href="#documentos">Documentários e Fontes</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Banner Principal -->
+    <header>
+        <h1>Povos Indígenas no Paraná</h1>
+        <p>Um estudo aprofundado sobre a ancestralidade, as transformações territoriais e a persistência cultural das etnias Kaingang, Guarani e Xetá.</p>
+    </header>
+
+    <div class="container">
+        
+        <!-- SEÇÃO 1: Contexto Histórico -->
+        <section id="historia">
+            <h2 class="section-title">Contextualização Histórica e Territorial</h2>
+            <p>Antes da chegada dos colonizadores europeus e da consequente formação do território que hoje conhecemos como o Estado do Paraná, extensas redes de caminhos ligavam o litoral ao interior do continente. O mais famoso deles, o Caminho do Peabiru, cortava o estado e era utilizado por diversas nações indígenas para migrações, trocas comerciais e práticas rituais religiosas.</p>
+            
+            <p>Com o avanço da colonização a partir do século XVI, a exploração do ouro de lavagem no litoral, os ciclos da erva-mate e, muito mais tarde, a violenta expansão da fronteira agrícola cafeeira e de colonização no Norte e Oeste paranaense no século XX comprimiram drasticamente os territórios tradicionais nativos. Esse processo resultou em migrações forçadas, perdas culturais imensuráveis e reconfigurações drásticas no modo de vida comunitário.</p>
+
+            <div class="Destaque-texto">
+                "A história dos povos indígenas no Paraná não é uma narrativa do passado arqueológico, mas sim um processo vivo e contínuo de adaptação jurídica, social e cultural diante das pressões contemporâneas sobre suas terras."
+            </div>
+        </section>
+
+        <!-- SEÇÃO 2: As Etnias em Detalhes (Fotos de Árvores/Florestas) -->
+        <section id="etnias">
+            <h2 class="section-title">As Três Grandes Nações Paranaenses</h2>
+            <p>O mosaico cultural indígena do estado é predominantemente composto por três etnias sobreviventes, cada qual com estruturas linguísticas, crenças cosmológicas e dinâmicas de organização política totalmente distintas.</p>
+
+            <div class="grid-etnias">
+                
+                <!-- Card Kaingang - Imagem: Floresta de Araucárias / Pinheiros (Típica do Sul) -->
+                <div class="card-etnia">
+                    <img src="https://images.unsplash.com/photo-1547036967-23d11aacaee0?auto=format&fit=crop&q=80&w=600" alt="Pinheiro Araucária e vegetação nativa do Sul">
+                    <div class="card-body">
+                        <h3>Povo Kaingang</h3>
+                        <p>Falantes de uma língua do tronco Jê, os Kaingang historicamente habitavam as zonas de florestas de Araucárias e os campos do planalto. Sua sociedade é rigorosamente dividida em duas metades exogâmicas: os <em>Kamé</em> e os <em>Kairu</em>, sistema que dita desde casamentos até lideranças políticas e rituais fúnebres como o Kiki. São amplamente reconhecidos pela maestria em trançados de fibras vegetais.</p>
+                    </div>
+                </div>
+
+                <!-- Card Guarani - Imagem: Floresta Tropical Densa / Mata Atlântica -->
+                <div class="card-etnia">
+                    <img src="https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&q=80&w=600" alt="Árvores de grande porte e mata atlântica nativa">
+                    <div class="card-body">
+                        <h3>Povo Guarani</h3>
+                        <p>Subdivididos principalmente entre as vertentes <em>Mbyá</em> e <em>Ñandeva</em> (ou Ava-Guarani), pertencem ao tronco linguístico Tupi-Guarani. Sua visão de mundo está centrada na busca incessante pela "Terra Sem Males", um espaço de paz e abundância espiritual. A manutenção do idioma materno dentro das aldeias e as rezas coletivas nas Casas de Reza (Opy) são pilares fundamentais da sua resistência cotidiana.</p>
+                    </div>
+                </div>
+
+                <!-- Card Xetá - Imagem: Raízes de uma árvore centenária na mata profunda -->
+                <div class="card-etnia">
+                    <img src="https://images.unsplash.com/photo-1473448912268-2022ce9509d8?auto=format&fit=crop&q=80&w=600" alt="Raízes e interior de floresta densa">
+                    <div class="card-body">
+                        <h3>Povo Xetá</h3>
+                        <p>Os Xetá habitavam originalmente as densas matas da Bacia do Rio Ivaí, no noroeste do estado. Permaneceram virtualmente isolados até a década de 1950, quando frentes colonizadoras dizimaram quase a totalidade de sua população. Os poucos sobreviventes dispersaram-se ou foram integrados a outras reservas. Hoje, os núcleos familiares descendentes realizam um trabalho minucioso de resgate de sua língua e tradições materiais.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SEÇÃO 3: Dados Demográficos e Terras (Tabela) -->
+        <section id="dados">
+            <h2 class="section-title">Distribuição Demográfica e Geográfica</h2>
+            <p>Atualmente, a população indígena no Paraná distribui-se por dezenas de Terras Indígenas (TIs) homologadas ou em processo de identificação, além de acampamentos e núcleos urbanos. Veja abaixo dados aproximados e históricos das principais áreas de ocupação:</p>
+
+            <div class="tabela-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Etnia Principal</th>
+                            <th>Principais Regiões Geográficas no PR</th>
+                            <th>Principais Terras Indígenas (Exemplos)</th>
+                            <th>Elementos Culturais Marcantes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Kaingang</strong></td>
+                            <td>Norte Pioneiro, Centro-Sul e Sudoeste</td>
+                            <td>TI Mangueirinha, TI Rio das Cobras, TI Apucaraninha</td>
+                            <td>Artesanato em taquara, Ritual do Kiki, Divisão Kamé/Kairu</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Guarani (Mbyá / Ñandeva)</strong></td>
+                            <td>Oeste, Litoral e Sudoeste</td>
+                            <td>TI Tekoha Añetete, TI Ilha da Cotinga, TI Rio das Cobras</td>
+                            <td>Casas de reza (Opy), Esculturas em madeira caixeta, Nomadismo espiritual</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Xetá</strong></td>
+                            <td>Noroeste (Originalmente) / Dispersos</td>
+                            <td>Áreas compartilhadas (TI São Jerônimo)</td>
+                            <td>Arqueologia de salvaguarda, Fabricação de arcos e machados de pedra</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- SEÇÃO 4: Documentações Externas (Cards que abrem novas abas) -->
+        <section id="documentos">
+            <h2 class="section-title">Fontes de Pesquisa e Links Oficiais</h2>
+            <p>Para se aprofundar nos dados jurídicos, históricos e antropológicos sobre os povos originários do Paraná e do Brasil, explore os portais institucionais e bancos de dados especializados listados abaixo. <strong>Clique nos cards para abrir a documentação em uma nova aba do seu navegador:</strong></p>
+
+            <div class="grid-links">
+                
+                <!-- Link 1 -->
+                <a href="https://www.museuparanaense.pr.gov.br/" target="_blank" class="link-box">
+                    <div>
+                        <h4>Museu Paranaense (MUPA)</h4>
+                        <p>Guarda um dos maiores acervos arqueológicos e etnográficos do Sul do país, com coleções completas sobre a cultura material Xetá e Kaingang.</p>
+                    </div>
+                    <span class="link-btn">Acessar Acervo ↗</span>
+                </a>
+
+                <!-- Link 2 -->
+                <a href="https://pib.socioambiental.org/pt/P%C3%A1gina_principal" target="_blank" class="link-box" style="background-color: #8b4513;">
+                    <div>
+                        <h4>Povos Indígenas no Brasil (ISA)</h4>
+                        <p>Plataforma do Instituto Socioambiental com mapas detalhados, situação jurídica das terras paranaenses e notícias atualizadas sobre as comunidades.</p>
+                    </div>
+                    <span class="link-btn">Explorar Mapas ↗</span>
+                </a>
+
+                <!-- Link 3 -->
+                <a href="https://www.gov.br/funai/pt-br" target="_blank" class="link-box" style="background-color: #3e5c76;">
+                    <div>
+                        <h4>Portal Oficial da FUNAI</h4>
+                        <p>Acompanhe os processos de demarcação, políticas públicas de sustentabilidade e a legislação de proteção aos povos originários.</p>
+                    </div>
+                    <span class="link-btn">Ver Legislação ↗</span>
+                </a>
+
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Rodapé Informativo -->
+    <footer>
+        <p>Portal de Estudos de Cultura e História Regional.</p>
+        <p style="margin-top: 10px; font-size: 0.85rem; opacity: 0.7;">&copy; 2026 - Desenvolvido para fins educacionais e de valorização da diversidade étnica brasileira.</p>
+    </footer>
+
+</body>
+</html>
